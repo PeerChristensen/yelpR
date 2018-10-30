@@ -9,19 +9,20 @@
 #' @import dplyr
 #' @import lubridate
 #' @import stringr
-
+#' @import readr
 
 ### FUNCTION: GET N PAGES ###
 
 n_pages <- function(base_url){
 
-  last_page <- html               %>%
-      html_nodes(".review-pager") %>%
-      html_text()                 %>%
-      str_split("1")              %>%
-      map(2)                      %>%
-      unlist()                    %>%
-      parse_number()
+  base_url                      %>%
+    xml2::read_html()           %>%
+    html_nodes(".review-pager") %>%
+    html_text()                 %>%
+    str_split("1")              %>%
+    map(2)                      %>%
+    unlist()                    %>%
+    parse_number()
 }
 
 ### FUNCTION: GET ALL PAGES ###

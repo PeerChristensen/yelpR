@@ -21,6 +21,7 @@
 #' @import dplyr
 #' @import lubridate
 #' @import stringr
+#' @import readr
 #' @import purrr
 #'
 #' @examples
